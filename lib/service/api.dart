@@ -3,6 +3,7 @@ class Api {
     static String apiLogin = "api/user/login";
     static String test = "api/test/get/search";
     static String alltest = "api/question/get";
+    static String result = "api/result/create";
 
 
   

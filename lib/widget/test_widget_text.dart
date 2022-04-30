@@ -7,11 +7,12 @@ import 'package:ishonch_test/funksion/text.dart';
 class TestWidgetText extends StatelessWidget {
   const TestWidgetText({
     Key? key,
-    required this.textController, required this.text,
+    required this.textController, required this.text, required this.type,
   }) : super(key: key);
 
   final TextEditingController textController;
    final String text;
+   final String type;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,6 +45,7 @@ class TestWidgetText extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
               controller: textController,
+              keyboardType: type=="Written"?TextInputType.text:TextInputType.number,
               decoration: InputDecoration(border: InputBorder.none),
             ),
           )

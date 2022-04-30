@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:ishonch_test/funksion/colorhex.dart';
 import 'package:ishonch_test/funksion/text.dart';
 import 'package:ishonch_test/pages/test_page.dart';
@@ -17,11 +18,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   AllTestModel viewnodel = AllTestModel();
+  static var box = Hive.box("MyBaza");
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     viewnodel.getAllTest();
+    box.put("request", null);
   }
 
   @override

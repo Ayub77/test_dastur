@@ -55,6 +55,30 @@ class Network {
     }
   }
 
+  static Future postApiJson(String api, Map<String, dynamic> params) async {
+    var res = box.get('auth');
+    String auth = res ?? "";
+    Map<String, String> head = {
+      'Coutent-Type': 'application/json; charset=UTF-8',
+      'Authorization': auth
+    };
+    try {
+      var uri = Uri.http(Api.Base, api);
+      var response = await http.post(uri, headers: head, body: jsonEncode(params));
+
+      if (response.statusCode < 299) {
+        var data = {'error': false, 'data': jsonDecode(response.body)};
+        return data;
+      }
+      var data = {'error': true, 'data': jsonDecode(response.body)};
+      return data;
+    } catch (e) {
+      print(e);
+      var data = {'error': true, 'data': "Server bilan aloqa yo'q"};
+      return data;
+    }
+  }
+
 
 
 }

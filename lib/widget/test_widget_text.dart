@@ -1,15 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:ishonch_test/funksion/colorhex.dart';
+import 'package:ishonch_test/funksion/text.dart';
 
 class TestWidgetText extends StatelessWidget {
   const TestWidgetText({
     Key? key,
-    required this.textController,
+    required this.textController, required this.text,
   }) : super(key: key);
 
   final TextEditingController textController;
-
+   final String text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,12 +30,13 @@ class TestWidgetText extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("savol joylashuvi"),
+          TextWidget.txt(text, 20, FontWeight.w500, ColorHex.colorFromHex("#000000")),
           SizedBox(
             height: 20,
           ),
           Container(
             width: double.infinity,
+            height: 35,
             decoration: BoxDecoration(
                borderRadius: BorderRadius.circular(7),
                 border: Border.all(
